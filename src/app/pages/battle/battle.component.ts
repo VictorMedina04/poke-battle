@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-battle',
@@ -8,23 +9,17 @@ import { Component } from '@angular/core';
 export class BattleComponent {
 
   pokemonTurn = 1;
-  pokemonPlayer1Id :number;
-  pokemonPlayer2Id : number;
+  pokemonPlayer1Id = this.getRandomPokemonId();
+  pokemonPlayer2Id = this.getRandomPokemonId();
   lifePokemon1 = 100;
   lifePokemon2 = 100;
 
-  constructor() {
-    this.pokemonPlayer1Id = this.getRandomPokemonId();
-    this.pokemonPlayer2Id = this.getRandomPokemonId();
-  }
 
   getRandomPokemonId(): number {
     const min = 1;
-    const max = 151; // Assuming the range is from 1 to 151
+    const max = 151;
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-
-
 
   applyDamage(damage: number) {
     if (this.pokemonTurn == 1) {
@@ -36,4 +31,19 @@ export class BattleComponent {
     }
   }
 
+  reiniciarBatalla() {
+    this.lifePokemon1 = 100;
+    this.lifePokemon2 = 100;
+    this.pokemonTurn = 1;
+  }
+
+  cambiarPokemon1(): void {
+    this.pokemonPlayer1Id = this.getRandomPokemonId();
+    this.lifePokemon1 = 100;
+  }
+
+  cambiarPokemon2(): void {
+    this.pokemonPlayer2Id = this.getRandomPokemonId();
+    this.lifePokemon2 = 100;
+  }
 }

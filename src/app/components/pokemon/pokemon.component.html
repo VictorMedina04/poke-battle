@@ -6,12 +6,16 @@
         <p class="card-text">{{pokemon?.height}} m</p>
         <ngb-progressbar class="mb-3" [type]="getProgressBarColor()" textType="white" [value]="life"
             [showValue]="true" />
-        @if (isMyTurn == true) {
-        <button class="btn btn-primary" (click)="doAttack()">Atacar</button>
+        @if (isMyTurn) {
 
-        }@else {
-        <p class="btn btn-secondary">Esperando..</p>
-        }
+        @if (life <= 0) { <p class="text-danger">You lose</p>
+
+            } @else {
+            <button (click)="doAttack()" class="btn btn-danger w-100">Attack</button>
+            }
+            } @else {
+            <button class="btn btn-secondary w-100" disabled>Waiting</button>
+            }
 
     </div>
 </div>

@@ -21,7 +21,7 @@ export class PokemonComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemonService.getPokemon(this.pokemonId!).subscribe(pokemonResponse => {
+    this.pokemonService.getPokemon().subscribe(pokemonResponse => {
       this.pokemon = pokemonResponse;
     });
   }
@@ -49,5 +49,7 @@ export class PokemonComponent implements OnInit {
       }
     }
   }
+
+ 
 
 }
