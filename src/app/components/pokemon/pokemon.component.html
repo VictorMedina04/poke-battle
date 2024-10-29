@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem;">
+    <img [src]="pokemon!.sprites.front_default" alt="">
+    <div class="card-body">
+        <h5 class="card-title">{{pokemon!.name}}</h5>
+        <p class="card-text">{{pokemon?.weight}} kg</p>
+        <p class="card-text">{{pokemon?.height}} m</p>
+        <ngb-progressbar class="mb-3" [type]="getProgressBarColor()" textType="white" [value]="life"
+            [showValue]="true" />
+        @if (isMyTurn == true) {
+        <button class="btn btn-primary" (click)="doAttack()">Atacar</button>
+
+        }@else {
+        <p class="btn btn-secondary">Esperando..</p>
+        }
+
+    </div>
+</div>
