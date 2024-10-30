@@ -36,14 +36,8 @@ export class BattleComponent {
     this.lifePokemon2 = 100;
     this.pokemonTurn = 1;
   }
-
-  cambiarPokemon1(): void {
-    this.pokemonPlayer1Id = this.getRandomPokemonId();
-    this.lifePokemon1 = 100;
+  handlePokemonChange(): void {
+    this.pokemonTurn = this.pokemonTurn === 1 ? 2 : 1;
   }
 
-  cambiarPokemon2(): void {
-    this.pokemonPlayer2Id = this.getRandomPokemonId();
-    this.lifePokemon2 = 100;
-  }
 }

@@ -13,9 +13,10 @@ export class PokemonComponent implements OnInit {
 
   @Input() pokemonId: number | undefined;
   @Input() life: number = 100;
+  @Input() isMyTurn: boolean = false;
   pokemon: PokemonResponse | undefined;
   @Output() onAttackDone = new EventEmitter<number>();
-  @Input() isMyTurn: boolean = false;
+  @Output() cambiarPokemon = new EventEmitter<void>();
   showAnimation = false;
 
   constructor(private pokemonService: PokemonService) { }
@@ -49,7 +50,15 @@ export class PokemonComponent implements OnInit {
       }
     }
   }
+  cambiarPokemons(): void {
+    this.pokemonService.getPokemon().subscribe((pokemon: PokemonResponse) => {
+      this.life = 100;
+      this.pokemon = pokemon;
+      this.cambiarPokemon.emit();
 
- 
+    })
+  }
+
+
 
 }
