@@ -7,12 +7,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BattleComponent } from './pages/battle/battle.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { provideHttpClient } from '@angular/common/http';
+import { PokemonImgPipe } from './pipes/pokemon-img.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BattleComponent,
-    PokemonComponent
+    PokemonComponent,
+    PokemonImgPipe
   ],
   imports: [
     BrowserModule,

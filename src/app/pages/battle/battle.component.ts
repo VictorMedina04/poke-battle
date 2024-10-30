@@ -35,6 +35,7 @@ export class BattleComponent {
     this.lifePokemon1 = 100;
     this.lifePokemon2 = 100;
     this.pokemonTurn = 1;
+
   }
   handlePokemonChange(): void {
     this.pokemonTurn = this.pokemonTurn === 1 ? 2 : 1;
